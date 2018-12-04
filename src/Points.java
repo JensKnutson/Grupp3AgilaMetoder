@@ -5,21 +5,43 @@ import java.util.Collections;
 public class Points {
 	ArrayList<Card> hand = new ArrayList<Card>();
 
+	// Tom konstruktor för testing
 	public Points() {
-		hand.add(new Card(6, Suit.HEARTS));
-		hand.add(new Card(4, Suit.HEARTS));
-		hand.add(new Card(4, Suit.HEARTS));
-		hand.add(new Card(4, Suit.HEARTS));
+		hand.add(new Card(2, Suit.HEARTS));
+		hand.add(new Card(6, Suit.DIAMONDS));
+		hand.add(new Card(2, Suit.HEARTS));
+		hand.add(new Card(5, Suit.HEARTS));
 		hand.add(new Card(6, Suit.HEARTS));
 		Collections.sort(hand);
 	}
-	
+
+	// Konstuktor som ska användas när man tillkallas klassen. Tar emot en arraylsit
+	// som ska vara användarens hand
 	public Points(ArrayList<Card> hand) {
 		this.hand = hand;
 		Collections.sort(hand);
 	}
+	
+	//retunerar 
+	public int getPointsVideoPoker() {
+		if (pointsColoredLadder()) {
+			return 12;
+		} else if (pointsFours()) {
+			return 9;
+		} else if (pointsFullHouse()) {
+			return 6;
+		} else if (pointsColour()) {
+			return 5;
+		}
+		else if (pointsLadder()) {
+			return 4;
+		}
+		
+		return pointsPar();
+	}
 
-	private int PointsPar() {
+	// Räkna ut par och tvåpar
+	private int pointsPar() {
 		int score = 0;
 		for (int j = 0; j < hand.size(); j++) {
 			for (int i = j + 1; i < hand.size(); i++) {
@@ -31,56 +53,54 @@ public class Points {
 		return score;
 	}
 
-	private int PointsColour() {
-		boolean sameSuit = true;
-		int score = 0;
+	// Räkna ut om du har färg
+	private boolean pointsColour() {
 		for (int i = 1; i < hand.size(); i++) {
 			if (hand.get(0).getSuit() != hand.get(i).getSuit()) {
-				sameSuit = false;
+				return false;
 			}
 		}
-		if (sameSuit) {
-			score = 5;
-		}
-		return score;
+		return true;
 	}
 
-	private int pointsLadder() {
-		int score = 0;
-		boolean ladder = true;
+	// Räkna ut om du har har stege
+	private boolean pointsLadder() {
+		boolean b = false;
+		int p = 0;
 		for (int i = 0; i < hand.size() - 1; i++) {
-			if (hand.get(i).getValue() == hand.get(i + 1).getValue()) {
-				ladder = false;
+			if (hand.get(i).getValue()+1 == hand.get(i+1).getValue()) {
+				p++;
 			}
 		}
-		if (ladder) {
-			score = 4;
+		if(p == 4) {
+			b = true;
 		}
-		return score;
+		return b;
 	}
 
-	private int pointsColoredLadder() {
-		int score = 0;
-		if (pointsLadder() == 4 && PointsColour() == 5) {
-			score = 12;
+	// räkna ut om du har färgstege
+	private boolean pointsColoredLadder() {
+		if (pointsLadder() && pointsColour()) {
+			return true;
 		}
-		return score;
+		return false;
 	}
 
-	private int pointsFullHouse() {
-		int score = 0;
-		if (PointsPar() == 4) {
-			score = 6;
+	// Räkna ut om du har kåk
+	private boolean pointsFullHouse() {
+		if (pointsPar() == 4) {
+			return true;
 		}
-		return score;
+		return false;
 	}
 
-	private int pointsFours() {
+	// Räkna ut om du har fyrpar
+	private boolean pointsFours() {
 		for (int i = 0; i < 2; i++) {
 			if (hand.get(i).getValue() == hand.get(i + 3).getValue()) {
-				return 9;
+				return true;
 			}
 		}
-		return 0;
+		return false;
 	}
 }
