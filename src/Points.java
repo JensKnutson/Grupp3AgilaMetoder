@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 //import blackjack.Card;
 
-public class Poängräkning {
+public class Points {
 	ArrayList<Card> hand = new ArrayList<Card>();
 
-	public Poängräkning() {
+	public Points() {
 		hand.add(new Card(6, Suit.HEARTS));
 		hand.add(new Card(4, Suit.HEARTS));
 		hand.add(new Card(4, Suit.HEARTS));
@@ -14,7 +14,7 @@ public class Poängräkning {
 		Collections.sort(hand);
 	}
 	
-	public Poängräkning(ArrayList<Card> hand) {
+	public Points(ArrayList<Card> hand) {
 		this.hand = hand;
 		Collections.sort(hand);
 	}
