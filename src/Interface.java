@@ -1,194 +1,100 @@
 import java.util.ArrayList;
 import java.util.List;
-/* metoderna här kommer att användas i classer den implementerar.
- * skriva ut videoklassern
- */
 
-
-
-
-
-// skriva ut värden. 1-12
-//anropa klasser med kontruktor.
-//få in värden. 
-//videopoker 
-
-//Videopoker interface 
-//getscore.
 public class Interface {
 	
 	List <Card> cardIf = new ArrayList<>();
 	
 	
 	
-	
+	//från videopoker. skrivet ut spelarens hand
 	public void stand() {
 		
-	
-		Dealer d = new Dealer();
-		
-		
-		
-		
+		Dealer d = new Dealer();			
 		cardIf = d.getHand(); // hämta från dealer 
-		
-		
-
-		// skriver ut det dragna kortet.
+		// skriver ut de dragna kortet.
 		for (int i = 0; i < cardIf.size(); i++) {
-
-			System.out.println("Dina kort: " + cardIf.get(i));
-			
-
+			System.out.println("Dina kort: " + cardIf.get(i));	
 		}
 		
-
 	}
        
 
 	
-	//skriv ut nuvarande hand, skriver utefter aranget
+	//skriv ut nuvarande hand från videopoker
+	//***eventuellt tar bort.
 	public void getHand()
 	{
+		VideoPoker vp = new VideoPoker();
+		//vp.get
+		
+		System.out.println("Din nuvarande hand " );
 		
 	}
 	
 	
 	//hämta poäng skriv ut från videopoker.
 	//koppla till poäng score
+	//*******obs inte klar***********
 	public  void getScore()
 	{
-	
-		//poäng. 
+		Points p = new Points();
+		Dealer d = new Dealer();
 		
+		cardIf = d.getHand();	
+		p.getPointsVideoPoker();
 		
-			int score = 0;
-			int value;
-			
-			
-			for (int i = 0 ; i < cardIf.size(); i++) {
-				
-								
-			}
-				
-						
-			
-	        // en for loop.
-			for (int i = 0; i < playerhand.size(); i++) {
-			//en for loop, loppar igenom spelarenshand
-			//for (int i = 0; i < vd.getPlayerHand(); i++) {
-				
-				//hämtar spelarens kort. 
-				value = playerhand.get(i).getValue(); //+ 1;
-	            
-				// test av value
-				 //System.out.println("vad är value " + value);//positionen i arrayen.
-				
-				// value är enligt reglerna
-				
-				/* straiht flush 
-				 * se handen om handen är straight flush
-				 * se handen är 
-				 * if()
-				 */
-				
-				//jämför vad man har på handen.
-				// switch case. 
-				switch (value) {
-				case 0:
-					//System.out.println("Inget kort.");
-					break;
-				case 1:
-					//if (Suit)
+		for (int i = 0; i< cardIf.size();i++) {
+			System.out.println("Dina poäng" + cardIf.get(i));
 					
-					
-					score = score + 11;
-					break;
-				case 2:
-					score = score + 2;
-					break;
-				case 3:
-					score = score + 3;
-					break;
-				case 4:
-					score = score + 4;
-					break;
-				case 5:
-					score = score + 5;
-					break;
-				case 6:
-					score = score + 6;
-					break;
-
-				case 7:
-					score = score + 7;
-					break;
-				case 8:
-					score = score + 8;
-
-					break;
-
-				case 9:
-					score = score + 9;
-
-					break;
-
-				case 10:
-
-					score = score + 10;
-
-					break;
-
-				case 11:
-					score = score + 10;
-
-					break;
-				case 12:
-
-					score = score + 10;
-					break;
-
-				case 13:
-					score = score +10;
-
-					break;
-				default:
-					score += value;
-					break;
-				} // end switch case
-
-			} // end for
+		}
+	}
 			
-			///poäng//
-/*
-			//skrivet ut summan på de dragna kort eller korten.
-			System.out.println("summan är  " + score + " " + value);
-
-			if (score < 10)
-		 {
-				
-			return aces = score + 11;
-		 }
-			else if (score == 10 ) {
-				return aces = +11;
-				
-			}
-			else {
-				return score;
-				
-			}
-				
-				
-
+		//skriva ut kort 11,12,13,14
+	
+		public String getCard()
+		{
+			Card card = new Card();
+			card.getSuit();
+			card.getValue();
+			String k = "K";
+			String q = "Q";
+			String j = "J";
+			String a = "A";
 			
-			return score;
-
+			
+			if (card.getValue() == 11) {
+				return j;
+		}
+			else if (card.getValue() == 13) {
+				return q;
+		}
+			else if (card.getValue() == 14) {
+				return k;
+		}
+			else if (card.getValue() == 1) {
+				return a;
 			}
-	} */
-	
-	
+			
+			//test
+			//System.out.println(a);		
+		
+	}
+		//ta emot värde 1-12,  returnerar färg och siffra.
+		//**inte helt klar
+             public void getValue()
+             {
+            	 Card card = new Card();
+            	 
+            	            	 
+             }
+             
+             
+             //färg
+             public void getSuit() {
+            	 
+             }
+		
 
 }
-}
-
 
