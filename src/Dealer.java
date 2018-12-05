@@ -33,6 +33,7 @@ public class Dealer {
 		return hand;
 	}
 	
+//	Släng ett kort
 	public void discardCard(int i) {
 		hand.remove(i);
 	}
