@@ -10,9 +10,9 @@ public class Bank {
 		}
 
 		public Bank(int n) { 
-			bank = n;
+			this.bank = n;
 		}
-
+ //  en method bank 
 		public int getBank() {
 			return bank;
 		}
