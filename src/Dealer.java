@@ -23,7 +23,7 @@ public class Dealer {
 	}
 	
 //	Ersätt alla kastade kort med nya
-	public List<Card> dealNewCards() {
+	public List<Card> redrawHand() {
 		while (hand.size() < 5) {
 			Card card = deck.draw();
 			System.out.println(card);
@@ -31,6 +31,10 @@ public class Dealer {
 		}
 		System.out.println("Här skrivs handen ut!");
 		return hand;
+	}
+	
+	public void discardCard(int i) {
+		hand.remove(i);
 	}
 	
 }
