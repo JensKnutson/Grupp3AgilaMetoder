@@ -9,8 +9,8 @@ public class Points {
 	public Points() {
 		hand.add(new Card(4, Suit.HEARTS));
 		hand.add(new Card(4, Suit.SPADES));
-		hand.add(new Card(6, Suit.HEARTS));
 		hand.add(new Card(5, Suit.HEARTS));
+		hand.add(new Card(4, Suit.HEARTS));
 		hand.add(new Card(8, Suit.HEARTS));
 		Collections.sort(hand);
 	}
@@ -22,7 +22,7 @@ public class Points {
 		Collections.sort(hand);
 	}
 	
-	//retunerar 
+	//retunerar värdet för den hand du har. Tanken är att detta är den enda metoden som ska anropas från points
 	public int getPointsVideoPoker() {
 		if (pointsColoredLadder()) {
 			return 12;
