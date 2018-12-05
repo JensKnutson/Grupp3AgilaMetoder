@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 import java.util.Collections;
-//import blackjack.Card;
+
 
 public class Points {
 	ArrayList<Card> hand = new ArrayList<Card>();
 
 	// Tom konstruktor för testing
 	public Points() {
-		hand.add(new Card(2, Suit.HEARTS));
-		hand.add(new Card(6, Suit.DIAMONDS));
-		hand.add(new Card(2, Suit.HEARTS));
-		hand.add(new Card(5, Suit.HEARTS));
+		hand.add(new Card(4, Suit.HEARTS));
+		hand.add(new Card(4, Suit.SPADES));
 		hand.add(new Card(6, Suit.HEARTS));
+		hand.add(new Card(5, Suit.HEARTS));
+		hand.add(new Card(8, Suit.HEARTS));
 		Collections.sort(hand);
 	}
 
@@ -36,7 +36,6 @@ public class Points {
 		else if (pointsLadder()) {
 			return 4;
 		}
-		
 		return pointsPar();
 	}
 

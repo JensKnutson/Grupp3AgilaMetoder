@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Bank {
+public class Bank implements Serializable {
 	
 
 
@@ -10,9 +11,9 @@ public class Bank {
 		}
 
 		public Bank(int n) { 
-			bank = n;
+			this.bank = n;
 		}
-
+ //  en method bank 
 		public int getBank() {
 			return bank;
 		}
@@ -21,8 +22,7 @@ public class Bank {
 			bank = n;
 		}
 
-		public void Bankroll(int n) 
-		{
+		public void Bankroll(int n) {
 			bank += n;
 		}
 
@@ -33,6 +33,4 @@ public class Bank {
 
 	// ta emot ett värde
 	// hämt värdet
-
-
 
