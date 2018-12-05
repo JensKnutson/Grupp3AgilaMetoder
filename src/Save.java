@@ -18,12 +18,13 @@ public class Save   {
 	}
 	
 	//Konstruktor som tar emot objekten vi vill spara och skapar filen save.txt i src
-	Save(Deck deck, List<Card> playerHand, int score) throws IOException {
+	//Värt att tänka på är att klassen där objekten finns måste extenda Serializable
+	Save(Deck deck, List<Card> playerHand, int bank) throws IOException {
 	this.file = new File("save.txt");
 	file.createNewFile();
 	list.add(deck);
 	list.add(playerHand);
-	list.add(score);
+	list.add(bank);
 	}
 	
 	
@@ -48,7 +49,7 @@ public class Save   {
 }
 
 //Ett exempel på hur en sparning hade kunnat se ut
-//Save s = new Save(deck, deal.getHand(), pi);
+//Save s = new Save(deal.getDeck, deal.getHand(), int);
 //s.save();
 
 //Ett exempel på hur man kan skriva laddningen
