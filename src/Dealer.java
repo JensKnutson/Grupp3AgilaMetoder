@@ -17,10 +17,12 @@ public class Dealer {
 		
 	}
 	
+//	Sätt hand. Används vid inladdning av sparade värden
 	public void setHand(List<Card> hand) {
 		this.hand = hand;
 	}
 	
+//	Sätt deck. Används vid inladdning av sparade värden
 	public void setDeck(Deck deck) {
 		this.deck = deck;
 	}
@@ -28,6 +30,11 @@ public class Dealer {
 //	Metod för att hämta hand.
 	public List<Card> getHand() {
 		return hand;
+	}
+	
+//	Metod för att hämta deck.
+	public Deck getDeck() {
+		return deck;
 	}
 	
 //	Ersätt alla kastade kort med nya
@@ -43,7 +50,12 @@ public class Dealer {
 	
 //	Släng ett kort
 	public void discardCard(int i) {
-		hand.remove(i);
+		try {
+			hand.remove(i);
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("Det finns inget kort med index " + i);
+		}
+		
 	}
 	
 }
