@@ -1,7 +1,12 @@
+import java.io.File;
+import java.io.IOException;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Points p = new Points();
-		System.out.println(p.getPointsVideoPoker());
+//		Save s = new Save();
+//		s.serialization();
+//		Object o = s.deSerialization();
+//		System.out.println(o);
 	}
 }

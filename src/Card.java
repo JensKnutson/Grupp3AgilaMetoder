@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Card implements Comparable<Object> {
+public class Card implements Comparable<Object>, Serializable {
 	private int value;
 	private Suit suit;
 
@@ -18,6 +19,11 @@ public class Card implements Comparable<Object> {
 	public Suit getSuit() {
 		return this.suit;
 
+	}
+	
+	@Override
+	public String toString() {
+		return(getValue() + " " + getSuit());
 	}
 
 	@Override
