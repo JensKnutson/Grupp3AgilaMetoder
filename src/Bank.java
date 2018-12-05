@@ -1,4 +1,5 @@
+import java.io.Serializable;
 
-public class Bank {
+public class Bank implements Serializable{
 
 }

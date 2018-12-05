@@ -1,4 +1,5 @@
+import java.io.Serializable;
 
-public class Deck {
-//kommentar
+public class Deck implements Serializable {
+	
 }
