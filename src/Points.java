@@ -22,7 +22,7 @@ public class Points {
 		Collections.sort(hand);
 	}
 	
-	//retunerar 
+	//retunerar värdet för den hand du har. Tanken är att detta är den enda metoden som ska anropas från points
 	public int getPointsVideoPoker() {
 		if (pointsColoredLadder()) {
 			return 12;
