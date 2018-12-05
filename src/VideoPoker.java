@@ -16,8 +16,8 @@ public class VideoPoker {
 //	Spelmenyn: - anpassad för att handmodifikation skall ske i Dealer
 	public void vpMenu() {
 		int playerInput;
+		Scanner scVP = new Scanner(System.in);
 		do {
-			Scanner scVP = new Scanner(System.in);
 			playerInput = scVP.nextInt();
 			System.out.println("Välj vilket kort du vill byta");
 			System.out.printf("LÄGG IN FORMATTERING!", 1, 2, 3, 4, 5, "0: Byten klart");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning

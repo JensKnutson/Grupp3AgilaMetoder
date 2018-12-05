@@ -17,6 +17,14 @@ public class Dealer {
 		
 	}
 	
+	public void setHand(List<Card> hand) {
+		this.hand = hand;
+	}
+	
+	public void setDeck(Deck deck) {
+		this.deck = deck;
+	}
+	
 //	Metod för att hämta hand.
 	public List<Card> getHand() {
 		return hand;
