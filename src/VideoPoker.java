@@ -9,6 +9,9 @@ public class VideoPoker {
 	
 	Dealer deal = new Dealer();
 	Interface intf = new Interface(deal);
+	Bank bank = new Bank();
+	
+	boolean playForMoney = false;
 	
 	public VideoPoker() {
 		vpMainMenu();
@@ -29,6 +32,14 @@ public class VideoPoker {
 			case 2:
 				//Ladda spel
 				break;
+			case 4:
+				playForMoney = true;
+				System.out.println("Hur mycket vill du sätta in?");
+				Scanner mScan = new Scanner(System.in);
+				bank.setBalance(mScan.nextInt());
+				System.out.println("Saldo " + bank.getBalance() + " kr.");
+				mScan.close();
+				break;
 			case 0:
 				break;
 
@@ -43,9 +54,16 @@ public class VideoPoker {
 //	Spelmenyn: - anpassad för att handmodifikation skall ske i Dealer
 	public void vpGameMenu() {
 		int playerInput;
+		int bet;
 		do {
-			System.out.println("1: Byt kort " + "0: Byten klart");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
-			intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
+			intf.getHand();					
+			
+			if (playForMoney) {
+				System.out.println("Ditt saldo är: " + bank.getBalance() + " Hur mycket vill du satsa?");
+				bet = scVP.nextInt();
+			}
+			
+			System.out.println("1: Byt kort " + "0: Byten klart");		
 			playerInput = scVP.nextInt();
 			
 			switch (playerInput) {
@@ -61,30 +79,6 @@ public class VideoPoker {
 				
 				deal.discardCard(discardCards);		
 				break;
-//			case 2:
-//				deal.discardCard(1);		
-//				break;
-//			case 3:
-//				deal.discardCard(2);		
-//				break;
-//			case 4:
-//				deal.discardCard(3);		
-//				break;
-//			case 5:
-//				deal.discardCard(4);		
-//				break;
-//			case 7:
-//				Scanner scan = new Scanner(System.in);
-//				String[] discardString = scan.nextLine().split(" ");
-//				int discardCards[] = new int[discardString.length];
-//				
-//				for (int j = 0; j < discardCards.length; j++) {
-//					discardCards[j] = Integer.parseInt(discardString[j]);
-//				}
-//				
-//				deal.discardCard(discardCards);
-//				
-//				break;
 			case 0:
 				break;
 
@@ -95,9 +89,12 @@ public class VideoPoker {
 		} while (playerInput != 0);
 		
 		deal.redrawHand();					
-		intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
+		intf.getHand();					//skriv ut nuvarande hand
 		intf.getScore();
 		
+		if (playForMoney) {
+			bank.bet(bet);				//BANK -Metod finns inte ännu
+		}
 		
 		
 
