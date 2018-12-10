@@ -6,6 +6,7 @@ import java.io.Serializable;
  * get chips  form the bank
  * chips can be returned to the banker to get credit
  */
+import java.util.List;
 
 public class Bank implements Serializable {
 
@@ -31,14 +32,13 @@ public class Bank implements Serializable {
 	}
 	// EN METHOD SOM KOLLAR VAD MAN HAR FÅTT FÖR POÄNG
 
-		public void Check_balance() {
-
-			if (poäng == 0) {
-				System.out.println("");
-
-			} else if (poäng > 0) {
-				balance = balance + poäng;
-				System.out.println(" Din balance" + balance);
+		public void Check_balance(List <Card> hand, int i) {
+			Points point = new Points(hand);
+			balance += point.getPointsVideoPoker();
+			if(point.getPointsVideoPoker() > 0) {
+				i *= point.getPointsVideoPoker();
+			}
+			else balance -= i; 
 
 			}
 
