@@ -11,7 +11,7 @@ public class Bank implements Serializable {
 
 		
 
-	private int balance; 
+	private int balance=1000;
 	private int poäng;// poäng account
 	
 	public int getBalance() {
@@ -29,7 +29,18 @@ public class Bank implements Serializable {
 	public void setPoäng(int poäng) {
 		this.poäng = poäng;
 	}
-	
+	// EN METHOD SOM KOLLAR VAD MAN HAR FÅTT FÖR POÄNG
+
+		public void Check_balance() {
+
+			if (poäng == 0) {
+				System.out.println("");
+
+			} else if (poäng > 0) {
+				balance = balance + poäng;
+				System.out.println(" Din balance" + balance);
+
+			}
 
 	}
 
