@@ -44,9 +44,11 @@ public class Bank implements Serializable {
 				balance += i*point.getPointsVideoPoker();
 				System.out.println("Vinst! " + i*point.getPointsVideoPoker() + " Nytt saldo: " + getBalance());
 			}
-			else balance -= i; 
+			else {
+				balance -= i;
 				System.out.println("Du förlorade. Nytt saldo: " + getBalance());
 			}
+		}
 
 	}
 
