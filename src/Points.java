@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 
 public class Points {
-	ArrayList<Card> hand = new ArrayList<Card>();
+	List<Card> hand = new ArrayList<Card>();
 
 	// Tom konstruktor för testing
 	public Points() {
@@ -17,7 +18,7 @@ public class Points {
 
 	// Konstuktor som ska användas när man tillkallas klassen. Tar emot en arraylsit
 	// som ska vara användarens hand
-	public Points(ArrayList<Card> hand) {
+	public Points(List<Card> hand) {
 		this.hand = hand;
 		Collections.sort(hand);
 	}
