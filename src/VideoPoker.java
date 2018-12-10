@@ -7,7 +7,7 @@ public class VideoPoker {
 	
 	
 	Dealer deal = new Dealer();
-	Interface intf = new Interface();
+	Interface intf = new Interface(deal);
 	
 	
 //	Spelmenyn: - anpassad för att handmodifikation skall ske i Dealer
