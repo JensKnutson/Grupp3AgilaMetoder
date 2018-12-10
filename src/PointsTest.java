@@ -5,11 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
-<<<<<<< HEAD
-
-=======
->>>>>>> 678f57b6dd6856e33ad94647e6ede0c5c87fe1ae
-
 
 public class PointsTest {
 	

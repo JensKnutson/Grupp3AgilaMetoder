@@ -13,14 +13,16 @@ public class Interface {
 	}
 	
 	// skrivet ut spelarens hand
-	public void stand() {
+	public void getHand() {
 
 		cardInterface = deal.getHand(); // hämta från dealer
 
 		// skriver ut de dragna kortet.
+		System.out.print("Your Hand: ");
 		for (int i = 0; i < cardInterface.size(); i++) {
-			System.out.println("Your playerhand: " + cardInterface.get(i));
+			System.out.print(getCardPrint(cardInterface.get(i)));
 		}
+		System.out.println();
 
 	}
 
@@ -38,7 +40,9 @@ public class Interface {
 	
 	public void getScore() {
 		Points p = new Points(deal.getHand());
-       System.out.println("Points: " + p.getPointsVideoPoker());
+//		Tom konstruktor för att testa önskat resutlat
+//		Points p = new Points();
+		System.out.println("Points: " + p.getPointsVideoPoker());
         
 	}
 
@@ -77,7 +81,7 @@ public class Interface {
 //	}
 
 	// metod valör på korten
-	public String getCard(Card card) {
+	public String getCourtCard(Card card) {
 
 		// test värden.
 		//		Card card = new Card(2, Suit.SPADES);
@@ -85,13 +89,13 @@ public class Interface {
 		if (card.getValue() == 11) {
 			return "J";
 
-		} else if (card.getValue() == 13) {
+		} else if (card.getValue() == 12) {
 
 			return "Q";
-		} else if (card.getValue() == 14) {
+		} else if (card.getValue() == 13) {
 
 			return "K";
-		} else if (card.getValue() == 1) {
+		} else if (card.getValue() == 14) {
 
 			return "A";
 		} else
@@ -140,10 +144,10 @@ public class Interface {
 		// ett värde som konstruktorn vill ha.
 //		Card card = new Card(2, Suit.CLUBS);
 
-		if (card.getValue() <= 10 && card.getValue() > 2) {
+		if (card.getValue() <= 10 ) {
 			return card.getSuit() + " " + card.getValue() + ",";
 		} else
-			return card.getSuit() + " " + card.getValue() + ",";
+			return card.getSuit() + " " + getCourtCard(card) + ",";
 
 	}
 

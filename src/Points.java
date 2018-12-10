@@ -9,9 +9,9 @@ public class Points {
 	// Tom konstruktor för testing
 	public Points() {
 		hand.add(new Card(4, Suit.HEARTS));
-		hand.add(new Card(4, Suit.SPADES));
 		hand.add(new Card(5, Suit.HEARTS));
-		hand.add(new Card(4, Suit.HEARTS));
+		hand.add(new Card(6, Suit.HEARTS));
+		hand.add(new Card(7, Suit.HEARTS));
 		hand.add(new Card(8, Suit.HEARTS));
 		Collections.sort(hand);
 	}
