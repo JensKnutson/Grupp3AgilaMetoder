@@ -29,6 +29,7 @@ public class VideoPoker {
 			case 1:
 				vpGameMenu();
 				break;
+<<<<<<< HEAD
 //			case 2:
 //				System.out.println(deal.getHand());
 //				Save save = new Save(deal.getDeck(), deal.getHand(), bank.getPoäng());
@@ -44,6 +45,23 @@ public class VideoPoker {
 //				System.out.println("Spel laddat");
 //				vpGameMenu();
 //				break;
+=======
+			case 2:
+				System.out.println(deal.getHand());
+				Save save = new Save(deal.getDeck(), deal.getHand(), bank.getBalance());
+				save.save();
+				break;
+			case 3:
+				save = new Save();
+				Dealer loadedDealer = save.load();
+				this.deal.setDeck(loadedDealer.getDeck());
+				this.deal.setHand(loadedDealer.getHand());
+				this.bank.setBalance(save.balance);
+				intf.getHand();
+				System.out.println("Spel laddat");
+				vpGameMenu();
+				break;
+>>>>>>> c6387b9cd4416c2eefa6873326ca8e60cde015b5
 			case 4:
 				playForMoney = true;
 				System.out.println("Hur mycket vill du sätta in?");
@@ -90,9 +108,15 @@ public class VideoPoker {
 				
 				deal.discardCard(discardCards);		
 				break;
+<<<<<<< HEAD
 //			case 9:
 //				save = new Save(deal.getDeck(), deal.getHand(), bank.getPoäng());
 //				save.save();
+=======
+			case 9:
+				save = new Save(deal.getDeck(), deal.getHand(), bank.getBalance());
+				save.save();
+>>>>>>> c6387b9cd4416c2eefa6873326ca8e60cde015b5
 			case 0:
 				break;
 
