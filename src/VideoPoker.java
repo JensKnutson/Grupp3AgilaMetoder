@@ -76,7 +76,7 @@ public class VideoPoker {
 				bet = scVP.nextInt();
 			}
 			
-			System.out.println("1: Byt kort " + "0: Byten klart");		
+			System.out.println("1: Byt kort " + "0: Byten klart " + "9: Spara");		
 			playerInput = scVP.nextInt();
 			
 			switch (playerInput) {
@@ -109,7 +109,7 @@ public class VideoPoker {
 		intf.getScore();
 		
 		if (playForMoney) {
-			bank.bet(bet);				//BANK -Metod finns inte ännu
+			//bank.bet(bet);				//BANK -Metod finns inte ännu
 		}
 
 	}
