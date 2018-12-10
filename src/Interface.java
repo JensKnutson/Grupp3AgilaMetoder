@@ -5,7 +5,12 @@ import java.util.List;
 public class Interface {
 
 	List<Card> cardInterface = new ArrayList<>();
+	Dealer deal;
 
+	
+	Interface(Dealer deal) {
+		this.deal = deal;
+	}
 	// skrivet ut spelarens hand
 	public void stand() {
 
@@ -79,27 +84,21 @@ public class Interface {
 		// test värden.
 		Card card = new Card(2, Suit.SPADES);
 
-		String k = "K";
-		String q = "Q";
-		String j = "J";
-		String a = "A";
-		String n = "";
-
 		if (card.getValue() == 11) {
-			return j;
+			return "J";
 
 		} else if (card.getValue() == 13) {
 
-			return q;
+			return "Q";
 		} else if (card.getValue() == 14) {
 
-			return k;
+			return "K";
 		} else if (card.getValue() == 1) {
 
-			return a;
+			return "A";
 		} else
 
-			return n;
+			return null;
 	}
 
 	// metod siffra kort
