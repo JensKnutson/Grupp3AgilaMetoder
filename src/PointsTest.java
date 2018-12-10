@@ -6,7 +6,6 @@ import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
 
-
 public class PointsTest {
 	
 	ArrayList<Card> hand = new ArrayList<Card>();
