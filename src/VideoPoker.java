@@ -48,6 +48,7 @@ public class VideoPoker {
 			System.out.println("Välj vilket kort du vill byta. " + "0: Byten klart");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
 			intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
 			playerInput = scVP.nextInt();
+			
 			switch (playerInput) {
 			case 1:
 				deal.discardCard(0);		
@@ -63,6 +64,18 @@ public class VideoPoker {
 				break;
 			case 5:
 				deal.discardCard(4);		
+				break;
+			case 7:
+				Scanner scan = new Scanner(System.in);
+				String[] discardString = scan.nextLine().split(" ");
+				int discardCards[] = new int[discardString.length];
+				
+				for (int j = 0; j < discardCards.length; j++) {
+					discardCards[j] = Integer.parseInt(discardString[j]);
+				}
+				
+				deal.discardCard(discardCards);
+				
 				break;
 			case 0:
 				break;
