@@ -38,14 +38,12 @@ public class Dealer {
 	}
 	
 //	Ersätt alla kastade kort med nya
-	public List<Card> redrawHand() {
+	public void redrawHand() {
 		while (hand.size() < 5) {
 			Card card = deck.draw();
 			System.out.println(card);
 			this.hand.add(card);
 		}
-		System.out.println("Här skrivs handen ut!");
-		return hand;
 	}
 	
 //	Släng ett kort
