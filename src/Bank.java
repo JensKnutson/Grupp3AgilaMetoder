@@ -11,8 +11,8 @@ public class Bank implements Serializable {
 
 		
 
-	private int balance=1000;
-	private int poäng;// poäng account
+	private int balance;
+	
 	
 	public int getBalance() {
 		return balance;
@@ -21,26 +21,31 @@ public class Bank implements Serializable {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
-
-	public int getPoäng() {
-		return poäng;
+	
+	public void bet(int b) {
+		Dealer d = new Dealer();
+		Points p = new Points(d.getHand());
+		if (p.getPointsVideoPoker() > 0) {
+			balance += p.getPointsVideoPoker()*b;
+		}
+		else {
+			balance -= b;
+		}
 	}
 
-	public void setPoäng(int poäng) {
-		this.poäng = poäng;
-	}
-	// EN METHOD SOM KOLLAR VAD MAN HAR FÅTT FÖR POÄNG
+// EN METHOD SOM KOLLAR VAD MAN HAR FÅTT FÖR POÄNG
 
-		public void Check_balance() {
-
-			if (poäng == 0) {
-				System.out.println("");
-
-			} else if (poäng > 0) {
-				balance = balance + poäng;
-				System.out.println(" Din balance" + balance);
-
-			}
-
-	}
+//	public void Check_balance() {
+//
+//			if (poäng == 0) {
+//				System.out.println("");
+//
+//			} else if (poäng > 0) {
+//				balance = balance + poäng;
+//				System.out.println(" Din balance" + balance);
+//
+//			}
+//
+//	}
+}
 
