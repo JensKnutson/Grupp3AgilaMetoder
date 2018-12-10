@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class VideoPoker {
 	
 	Scanner scVP = new Scanner(System.in);
-	Dealer deal;
-	Interface intf;
+	
+	Dealer deal = new Dealer();
+	Interface intf = new Interface(deal);
 	
 	public VideoPoker() {
 		vpMainMenu();
@@ -45,7 +46,7 @@ public class VideoPoker {
 		do {
 			System.out.println("Välj vilket kort du vill byta");
 			System.out.println("Välj vilket kort du vill byta. " + "0: Byten klart");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
-			intf.stand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
+			intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
 			playerInput = scVP.nextInt();
 			switch (playerInput) {
 			case 1:
@@ -73,7 +74,7 @@ public class VideoPoker {
 		} while (playerInput != 0);
 		
 		deal.redrawHand();					
-		intf.stand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
+		intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
 		intf.getScore();
 		
 		

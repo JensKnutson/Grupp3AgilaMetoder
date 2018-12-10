@@ -42,7 +42,7 @@ public class Dealer {
 		while (hand.size() < 5) {
 			Card card = deck.draw();
 			System.out.println(card);
-			hand.add(card);
+			this.hand.add(card);
 		}
 	}
 	
