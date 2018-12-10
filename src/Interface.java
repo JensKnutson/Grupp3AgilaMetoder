@@ -1,100 +1,153 @@
 import java.util.ArrayList;
 import java.util.List;
 
+//Jag hoppas detta är något på rätt väg.
 public class Interface {
-	
-	List <Card> cardIf = new ArrayList<>();
-	
-	
-	
-	//från videopoker. skrivet ut spelarens hand
-	public void stand() {
-		
-		Dealer d = new Dealer();			
-		cardIf = d.getHand(); // hämta från dealer 
-		// skriver ut de dragna kortet.
-		for (int i = 0; i < cardIf.size(); i++) {
-			System.out.println("Dina kort: " + cardIf.get(i));	
-		}
-		
-	}
-       
 
-	
-	//skriv ut nuvarande hand från videopoker
-	//***eventuellt tar bort.
-	public void getHand()
-	{
-		VideoPoker vp = new VideoPoker();
-		//vp.get
-		
-		System.out.println("Din nuvarande hand " );
-		
+	List<Card> cardInterface = new ArrayList<>();
+
+	// skrivet ut spelarens hand
+	public void stand() {
+
+		Dealer d = new Dealer();
+		cardInterface = d.getHand(); // hämta från dealer
+
+		// skriver ut de dragna kortet.
+		for (int i = 0; i < cardInterface.size(); i++) {
+			System.out.println("Your playerhand: " + cardInterface.get(i));
+		}
+
 	}
-	
-	
-	//hämta poäng skriv ut från videopoker.
-	//koppla till poäng score
-	//*******obs inte klar***********
-	public  void getScore()
-	{
+
+	// skriv ut nuvarande hand från videopoker
+	// ***eventuellt tar bort.
+	/*public void getHand() {
+		VideoPoker vp = new VideoPoker();
+		
+
+		System.out.println("Your playerhand: ");
+
+	} */
+
+	//poäng.
+	public void getScore() {
 		Points p = new Points();
 		Dealer d = new Dealer();
+		cardInterface = d.getHand();
 		
-		cardIf = d.getHand();	
-		p.getPointsVideoPoker();
-		
-		for (int i = 0; i< cardIf.size();i++) {
-			System.out.println("Dina poäng" + cardIf.get(i));
-					
-		}
+         for (int i = 0; i< cardInterface.size();i++ ) {
+		System.out.println("Points: " + p.getPointsVideoPoker());
+         }
 	}
-			
-		//skriva ut kort 11,12,13,14
-	
-		public String getCard()
+
+
+	// metod förkortning av suit.
+	public String getSuit() {
+		// test värden
+		Card card = new Card(13, Suit.SPADES);
+
+		String H = "H";
+		String S = "S";
+		String D = "D";
+		String C = "C";
+		String n = "";
+
+		if (card.getSuit().equals(Suit.HEARTS)) {
+
+			return H;
+		}
+
+		else if (card.getSuit().equals(Suit.SPADES)) {
+			return S;
+		}
+
+		else if (card.getSuit().equals(Suit.DIAMONDS))
+
 		{
-			Card card = new Card();
-			card.getSuit();
-			card.getValue();
-			String k = "K";
-			String q = "Q";
-			String j = "J";
-			String a = "A";
-			
-			
-			if (card.getValue() == 11) {
-				return j;
-		}
-			else if (card.getValue() == 13) {
-				return q;
-		}
-			else if (card.getValue() == 14) {
-				return k;
-		}
-			else if (card.getValue() == 1) {
-				return a;
-			}
-			
-			//test
-			//System.out.println(a);		
-		
+			return D;
+		} else if (card.getSuit().equals(Suit.CLUBS)) {
+			return C;
+		} else
+
+			return n;
+
 	}
-		//ta emot värde 1-12,  returnerar färg och siffra.
-		//**inte helt klar
-             public void getValue()
-             {
-            	 Card card = new Card();
-            	 
-            	            	 
-             }
-             
-             
-             //färg
-             public void getSuit() {
-            	 
-             }
-		
+
+	// metod valör på korten
+	public String getCard() {
+
+		// test värden.
+		Card card = new Card(2, Suit.SPADES);
+
+		String k = "K";
+		String q = "Q";
+		String j = "J";
+		String a = "A";
+		String n = "";
+
+		if (card.getValue() == 11) {
+			return j;
+
+		} else if (card.getValue() == 13) {
+
+			return q;
+		} else if (card.getValue() == 14) {
+
+			return k;
+		} else if (card.getValue() == 1) {
+
+			return a;
+		} else
+
+			return n;
+	}
+
+	// metod siffra kort
+	public static int getCardValue() {
+		// test värden
+		Card card = new Card(1, Suit.SPADES);
+		int in = 0;
+
+		if (card.getValue() == 2) {
+
+			return 2;
+		} else if (card.getValue() == 3) {
+
+			return 3;
+		} else if (card.getValue() == 4) {
+
+			return 4;
+		} else if (card.getValue() == 5) {
+
+			return 5;
+		} else if (card.getValue() == 6) {
+
+			return 6;
+		} else if (card.getValue() == 7) {
+
+			return 7;
+		} else if (card.getValue() == 8) {
+
+			return 8;
+		} else if (card.getValue() == 9) {
+
+			return 9;
+		} else
+
+			return in;
+
+	}
+
+	// skriver ut
+	public String getCardPrint() {
+		// ett värde som konstruktorn vill ha.
+		Card card = new Card(2, Suit.CLUBS);
+
+		if (card.getValue() <= 10 && card.getValue() > 2) {
+			return getSuit() + " " + getCardValue() + ",";
+		} else
+			return getSuit() + " " + getCard() + ",";
+
+	}
 
 }
-

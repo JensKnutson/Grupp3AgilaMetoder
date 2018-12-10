@@ -38,7 +38,7 @@ public class Save   {
 	}
 	
 	//Ladda in från filen file. Retunera en arraylist som du får läsa in i set metoder, se lösningsförslag längst ner
-	public Object load() throws IOException, ClassNotFoundException {
+	public Object serialization() throws IOException, ClassNotFoundException {
 		FileInputStream fis = new FileInputStream(file);
 		BufferedInputStream bis = new BufferedInputStream(fis);
 		ObjectInputStream ois = new ObjectInputStream(bis);
@@ -46,8 +46,28 @@ public class Save   {
 		ois.close();
 		return object;
 	}
+	
+	//retunerar objektet deal där hand och deck är satt till vad som fanns i filen save.txt
+	public Dealer load() throws ClassNotFoundException, IOException {
+		Dealer deal = new Dealer();
+		Object o = serialization();
+		this.list = (ArrayList<Object>) o;
+		Deck deck = (Deck) list.get(0);
+		deal.setDeck(deck);
+		List<Card> hand = (List<Card>) list.get(1);
+		deal.setHand(hand);
+		return deal;
+
+	}
 }
 
+
+//		Dealer deal = new Dealer();
+//Save save = new Save(deal.getDeck(), deal.getHand(), 8);
+//System.out.println(deal.getHand() + " " + deal.getDeck());
+//save.save();
+//deal = save.loads();
+//System.out.println(deal.getHand() + " " + deal.getDeck());
 //Ett exempel på hur en sparning hade kunnat se ut
 //Save s = new Save(deal.getDeck, deal.getHand(), int);
 //s.save();
