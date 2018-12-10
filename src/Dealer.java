@@ -1,5 +1,6 @@
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Dealer {
 	
@@ -54,6 +55,15 @@ public class Dealer {
 			System.out.println("Det finns inget kort med index " + i);
 		}
 		
+		
+	}
+//	Släng flera kort (tar array av heltal som parameter)
+	public void discardCard(int[] i) {
+		List<Integer> j = Arrays.stream(i).boxed().collect(Collectors.toList());
+		Collections.sort(j, Collections.reverseOrder());
+		for (Integer k : j) {
+			hand.remove(k.intValue());
+		}
 	}
 	
 }
