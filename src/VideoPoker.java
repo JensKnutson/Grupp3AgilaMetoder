@@ -56,7 +56,7 @@ public class VideoPoker {
 	public void vpGameMenu() throws IOException {
 		int playerInput;
 		do {
-			System.out.println("1: Byt kort " + "0: Byten klart" + "9: För att spara");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
+			System.out.println("1: Byt kort\n" + "0: Byten klart\n" + "9: För att spara\n");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
 			intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
 			playerInput = scVP.nextInt();
 			
