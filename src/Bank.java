@@ -4,33 +4,36 @@ public class Bank implements Serializable {
 	
 
 
-		private int bank;
+
+	/*
+	 *Denna klassen innehåller metoder för:
+	 * One player should be as the banker
+	 * Set the chips " money in the bank"
+	 * get chips  form the bank
+	 * chips can be returned to the banker to get credit
+	 */
+
+
+		public int bank;
 
 		public Bank() { // méthode banque pour prendre les valeur banque
 			bank = 0;
 		}
 
-		public Bank(int n) { 
-			this.bank = n;
+		public Bank(int indata) { 
+			this.bank = indata;
 		}
- //  en method bank 
 		public int getBank() {
 			return bank;
 		}
 
-		public void setBank(int n) {
-			bank = n;
+		public void setBank(int setdata) {
+			bank = setdata;
 		}
 
-		public void Bankroll(int n) {
-			bank += n;
+		public void Bankroll(int chips) {
+			bank += setchips;
 		}
 
 	}
-
-	// bank och deck är samma.
-	// ********************************************************************************************************//
-
-	// ta emot ett värde
-	// hämt värdet
 
