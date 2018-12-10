@@ -36,7 +36,7 @@ public class Bank implements Serializable {
 			Points point = new Points(hand);
 			balance += point.getPointsVideoPoker();
 			if(point.getPointsVideoPoker() > 0) {
-				i *= point.getPointsVideoPoker();
+				balance += i*point.getPointsVideoPoker();
 			}
 			else balance -= i; 
 
