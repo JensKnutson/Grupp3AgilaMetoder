@@ -11,6 +11,7 @@ import java.util.List;
 public class Save   {
 	File file = new File("save.txt");
 	ArrayList<Object> list = new ArrayList<>();	
+	int balance;
 	
 	//Tillkalla den tomma konstruktorn när du vill ladda. Pekar ut filen som ska heta save.txt och ligga i src
 	Save(){
@@ -55,6 +56,7 @@ public class Save   {
 		deal.setDeck(deck);
 		List<Card> hand = (List<Card>) list.get(1);
 		deal.setHand(hand);
+		balance = (int) list.get(2);
 		return deal;
 
 	}

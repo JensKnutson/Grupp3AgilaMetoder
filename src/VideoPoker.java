@@ -9,6 +9,7 @@ public class VideoPoker {
 	Scanner scVP = new Scanner(System.in);	
 	Dealer deal = new Dealer();
 	Interface intf = new Interface(deal);
+	Bank bank = new Bank();
 	Save save;
 	
 	public VideoPoker() throws ClassNotFoundException, IOException {
@@ -29,7 +30,7 @@ public class VideoPoker {
 				break;
 			case 2:
 				System.out.println(deal.getHand());
-				Save save = new Save(deal.getDeck(), deal.getHand(), 8);
+				Save save = new Save(deal.getDeck(), deal.getHand(), bank.getPoäng());
 				save.save();
 				break;
 			case 3:
@@ -37,6 +38,7 @@ public class VideoPoker {
 				Dealer loadedDealer = save.load();
 				this.deal.setDeck(loadedDealer.getDeck());
 				this.deal.setHand(loadedDealer.getHand());
+				this.bank.setPoäng(save.balance);
 				intf.getHand();
 				System.out.println("Spel laddat");
 				vpGameMenu();
@@ -74,7 +76,7 @@ public class VideoPoker {
 				deal.discardCard(discardCards);		
 				break;
 			case 9:
-				save = new Save(deal.getDeck(), deal.getHand(), 8);
+				save = new Save(deal.getDeck(), deal.getHand(), bank.getPoäng());
 				save.save();
 //			case 2:
 //				deal.discardCard(1);		
@@ -112,10 +114,6 @@ public class VideoPoker {
 		deal.redrawHand();					
 		intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
 		intf.getScore();
-		
-		
-		
-
 		
 	}
 	
