@@ -31,7 +31,7 @@ public class VideoPoker {
 				break;
 			case 2:
 				System.out.println(deal.getHand());
-				Save save = new Save(deal.getDeck(), deal.getHand(), bank.getPoäng());
+				Save save = new Save(deal.getDeck(), deal.getHand(), bank.getBalance());
 				save.save();
 				break;
 			case 3:
@@ -39,7 +39,7 @@ public class VideoPoker {
 				Dealer loadedDealer = save.load();
 				this.deal.setDeck(loadedDealer.getDeck());
 				this.deal.setHand(loadedDealer.getHand());
-				this.bank.setPoäng(save.balance);
+				this.bank.setBalance(save.balance);
 				intf.getHand();
 				System.out.println("Spel laddat");
 				vpGameMenu();
@@ -93,7 +93,7 @@ public class VideoPoker {
 				deal.discardCard(discardCards);		
 				break;
 			case 9:
-				save = new Save(deal.getDeck(), deal.getHand(), bank.getPoäng());
+				save = new Save(deal.getDeck(), deal.getHand(), bank.getBalance());
 				save.save();
 			case 0:
 				break;
