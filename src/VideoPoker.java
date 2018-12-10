@@ -6,8 +6,7 @@ import java.util.Scanner;
 
 public class VideoPoker {
 	
-	Scanner scVP = new Scanner(System.in);
-	
+	Scanner scVP = new Scanner(System.in);	
 	Dealer deal = new Dealer();
 	Interface intf = new Interface(deal);
 	Save save;
@@ -29,13 +28,18 @@ public class VideoPoker {
 				vpGameMenu();
 				break;
 			case 2:
+				System.out.println(deal.getHand());
 				Save save = new Save(deal.getDeck(), deal.getHand(), 8);
+				save.save();
 				break;
 			case 3:
 				save = new Save();
-				this.deal = save.load();
+				Dealer loadedDealer = save.load();
+				this.deal.setDeck(loadedDealer.getDeck());
+				this.deal.setHand(loadedDealer.getHand());
+				intf.getHand();
 				System.out.println("Spel laddat");
-				//vpGameMenu();
+				vpGameMenu();
 				break;
 			case 0:
 				break;
@@ -52,9 +56,8 @@ public class VideoPoker {
 	public void vpGameMenu() throws IOException {
 		int playerInput;
 		do {
-			//System.out.println("Välj vilket kort du vill byta");
 			System.out.println("Välj vilket kort du vill byta. \n" + "0: Byten klart. 9: för att spara");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
-			intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
+			intf.getHand();	
 			playerInput = scVP.nextInt();
 			switch (playerInput) {
 			case 1:
@@ -74,6 +77,7 @@ public class VideoPoker {
 				break;
 			case 9:
 				save = new Save(deal.getDeck(), deal.getHand(), 8);
+				save.save();
 			case 0:
 				break;
 
