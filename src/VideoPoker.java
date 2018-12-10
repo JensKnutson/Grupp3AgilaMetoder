@@ -56,28 +56,50 @@ public class VideoPoker {
 	public void vpGameMenu() throws IOException {
 		int playerInput;
 		do {
-			System.out.println("Välj vilket kort du vill byta. \n" + "0: Byten klart. 9: för att spara");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
-			intf.getHand();	
+			System.out.println("1: Byt kort " + "0: Byten klart" + "9: För att spara");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
+			intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
 			playerInput = scVP.nextInt();
+			
 			switch (playerInput) {
 			case 1:
-				deal.discardCard(0);		
-				break;
-			case 2:
-				deal.discardCard(1);		
-				break;
-			case 3:
-				deal.discardCard(2);		
-				break;
-			case 4:
-				deal.discardCard(3);		
-				break;
-			case 5:
-				deal.discardCard(4);		
+				System.out.println("Mata in vilka kort du vill byta med mellanslag som avskiljare ex. 1 4 2");
+				Scanner scan = new Scanner(System.in);
+				String[] discardString = scan.nextLine().split(" ");
+				int discardCards[] = new int[discardString.length];
+				
+				for (int j = 0; j < discardCards.length; j++) {
+					discardCards[j] = Integer.parseInt(discardString[j])-1;
+				}
+				
+				deal.discardCard(discardCards);		
 				break;
 			case 9:
 				save = new Save(deal.getDeck(), deal.getHand(), 8);
 				save.save();
+//			case 2:
+//				deal.discardCard(1);		
+//				break;
+//			case 3:
+//				deal.discardCard(2);		
+//				break;
+//			case 4:
+//				deal.discardCard(3);		
+//				break;
+//			case 5:
+//				deal.discardCard(4);		
+//				break;
+//			case 7:
+//				Scanner scan = new Scanner(System.in);
+//				String[] discardString = scan.nextLine().split(" ");
+//				int discardCards[] = new int[discardString.length];
+//				
+//				for (int j = 0; j < discardCards.length; j++) {
+//					discardCards[j] = Integer.parseInt(discardString[j]);
+//				}
+//				
+//				deal.discardCard(discardCards);
+//				
+//				break;
 			case 0:
 				break;
 
