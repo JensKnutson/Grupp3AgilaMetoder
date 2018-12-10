@@ -145,9 +145,9 @@ public class Interface {
 //		Card card = new Card(2, Suit.CLUBS);
 
 		if (card.getValue() <= 10 ) {
-			return card.getSuit() + " " + card.getValue() + ",";
+			return card.getSuit() + " " + card.getValue() + ", ";
 		} else
-			return card.getSuit() + " " + getCourtCard(card) + ",";
+			return card.getSuit() + " " + getCourtCard(card) + ", ";
 
 	}
 
