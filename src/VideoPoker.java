@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,25 +10,32 @@ public class VideoPoker {
 	
 	Dealer deal = new Dealer();
 	Interface intf = new Interface(deal);
+	Save save;
 	
-	public VideoPoker() {
+	public VideoPoker() throws ClassNotFoundException, IOException {
 		vpMainMenu();
 	}
 	
-	public void vpMainMenu() {
+	public void vpMainMenu() throws ClassNotFoundException, IOException {
 		int playerInput;
 		do {
 			deal = new Dealer();
 			intf = new Interface(deal);
 			System.out.println("---Video Poker---");
-			System.out.println("Välj:\n" + "1 - Ny hand\n" + "2 - Ladda spel\n" + "0 - Avsluta spel");
+			System.out.println("Välj:\n" + "1 - Ny hand\n" + "2 - Spara spel\n" + "3 - Ladda spel\n" + "0 - Avsluta spel");
 			playerInput = scVP.nextInt();
 			switch (playerInput) {
 			case 1:
 				vpGameMenu();
 				break;
 			case 2:
-				//Ladda spel
+				Save save = new Save(deal.getDeck(), deal.getHand(), 8);
+				break;
+			case 3:
+				save = new Save();
+				this.deal = save.load();
+				System.out.println("Spel laddat");
+				//vpGameMenu();
 				break;
 			case 0:
 				break;
@@ -41,11 +49,11 @@ public class VideoPoker {
 	}
 	
 //	Spelmenyn: - anpassad för att handmodifikation skall ske i Dealer
-	public void vpGameMenu() {
+	public void vpGameMenu() throws IOException {
 		int playerInput;
 		do {
-			System.out.println("Välj vilket kort du vill byta");
-			System.out.println("Välj vilket kort du vill byta. " + "0: Byten klart");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
+			//System.out.println("Välj vilket kort du vill byta");
+			System.out.println("Välj vilket kort du vill byta. \n" + "0: Byten klart. 9: för att spara");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
 			intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)
 			playerInput = scVP.nextInt();
 			switch (playerInput) {
@@ -64,6 +72,8 @@ public class VideoPoker {
 			case 5:
 				deal.discardCard(4);		
 				break;
+			case 9:
+				save = new Save(deal.getDeck(), deal.getHand(), 8);
 			case 0:
 				break;
 
