@@ -1,8 +1,8 @@
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +18,6 @@ public class PointsTest {
 		hand.add(new Card(3, Suit.HEARTS));
 		hand.add(new Card(5, Suit.HEARTS));
 		hand.add(new Card(7, Suit.HEARTS));
-		Collections.sort(hand);
 		Points point = new Points(hand);
 		assertEquals(1, point.getPointsVideoPoker());
 	}
