@@ -6,7 +6,7 @@ import java.util.List;
 public class Points {
 	List<Card> hand = new ArrayList<Card>();
 
-	// Tom konstruktor för testing
+	// Tom konstruktor för att testa
 	public Points() {
 		hand.add(new Card(4, Suit.HEARTS));
 		hand.add(new Card(5, Suit.HEARTS));

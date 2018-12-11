@@ -1,17 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
-//Jag hoppas detta är något på rätt väg.
 public class Interface {
 
 	List<Card> cardInterface = new ArrayList<>();
 	Dealer deal;
 
-	
 	Interface(Dealer deal) {
 		this.deal = deal;
 	}
-	
+
 	// skrivet ut spelarens hand
 	public void getHand() {
 
@@ -26,65 +24,31 @@ public class Interface {
 
 	}
 
-	// skriv ut nuvarande hand från videopoker
-	// ***eventuellt tar bort.
-	/*public void getHand() {
-		VideoPoker vp = new VideoPoker();
-		
-
-		System.out.println("Your playerhand: ");
-
-	} */
-
-	//poäng.
-	
+	//Utskrift till konsol för vad man har på handen
 	public void getScore() {
 		Points p = new Points(deal.getHand());
-//		Tom konstruktor för att testa önskat resutlat
-//		Points p = new Points();
-		System.out.println("Points: " + p.getPointsVideoPoker());
-        
+		int i = p.getPointsVideoPoker();
+		if (i == 1) {
+			System.out.println("Du fick par(1 poäng)");
+		} else if (i == 2) {
+			System.out.println("Du fick tvåpar(2 poäng)");
+		} else if (i == 3) {
+			System.out.println("Du fick triss(3 poäng)");
+		} else if (i == 4) {
+			System.out.println("Du fick stege(4 poäng)");
+		} else if (i == 5) {
+			System.out.println("Du fick färg(5 poäng)");
+		} else if (i == 6) {
+			System.out.println("Du fick kåk(6 poäng)");
+		} else if (i == 9) {
+			System.out.println("Du fick fyrtal(9 poäng)");
+		} else if (i == 12) {
+			System.out.println("Du fick färgstege(12 poäng)");
+		}
 	}
 
-
-	// metod förkortning av suit.
-//	public String getSuit() {
-//		// test värden
-//		Card card = new Card(13, Suit.SPADES);
-//		
-//
-//		String H = "H";
-//		String S = "S";
-//		String D = "D";
-//		String C = "C";
-//		String n = "";
-//
-//		if (card.getSuit().equals(Suit.HEARTS)) {
-//
-//			return H;
-//		}
-//
-//		else if (card.getSuit().equals(Suit.SPADES)) {
-//			return S;
-//		}
-//
-//		else if (card.getSuit().equals(Suit.DIAMONDS))
-//
-//		{
-//			return D;
-//		} else if (card.getSuit().equals(Suit.CLUBS)) {
-//			return C;
-//		} else
-//
-//			return n;
-//
-//	}
-
-	// metod valör på korten
+	// Ändra valör för klädda kort
 	public String getCourtCard(Card card) {
-
-		// test värden.
-		//		Card card = new Card(2, Suit.SPADES);
 
 		if (card.getValue() == 11) {
 			return "J";
@@ -103,48 +67,10 @@ public class Interface {
 			return null;
 	}
 
-	// metod siffra kort
-//	public int getCardValue() {
-//		// test värden
-//		Card card = new Card(1, Suit.SPADES);
-//		int in = 0;
-//
-//		if (card.getValue() == 2) {
-//
-//			return 2;
-//		} else if (card.getValue() == 3) {
-//
-//			return 3;
-//		} else if (card.getValue() == 4) {
-//
-//			return 4;
-//		} else if (card.getValue() == 5) {
-//
-//			return 5;
-//		} else if (card.getValue() == 6) {
-//
-//			return 6;
-//		} else if (card.getValue() == 7) {
-//
-//			return 7;
-//		} else if (card.getValue() == 8) {
-//
-//			return 8;
-//		} else if (card.getValue() == 9) {
-//
-//			return 9;
-//		} else
-//
-//			return in;
-//
-//	}
-
-	// skriver ut
+	// Utskrift till konsol
 	public String getCardPrint(Card card) {
-		// ett värde som konstruktorn vill ha.
-//		Card card = new Card(2, Suit.CLUBS);
 
-		if (card.getValue() <= 10 ) {
+		if (card.getValue() <= 10) {
 			return card.getSuit() + " " + card.getValue() + ", ";
 		} else
 			return card.getSuit() + " " + getCourtCard(card) + ", ";

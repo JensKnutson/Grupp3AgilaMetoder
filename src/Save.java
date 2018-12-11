@@ -15,8 +15,8 @@ public class Save   {
 	
 	//Tillkalla den tomma konstruktorn när du vill ladda. Pekar ut filen som ska heta save.txt och ligga i src
 	Save(){
-//		this.file = new File("save.txt");
 	}
+	
 	
 	//Konstruktor som tar emot objekten vi vill spara och skapar filen save.txt i src
 	//Värt att tänka på är att klassen där objekten finns måste extenda Serializable
@@ -61,20 +61,3 @@ public class Save   {
 
 	}
 }
-
-
-//		Dealer deal = new Dealer();
-//Save save = new Save(deal.getDeck(), deal.getHand(), 8);
-//System.out.println(deal.getHand() + " " + deal.getDeck());
-//save.save();
-//deal = save.loads();
-//System.out.println(deal.getHand() + " " + deal.getDeck());
-//Ett exempel på hur en sparning hade kunnat se ut
-//Save s = new Save(deal.getDeck, deal.getHand(), int);
-//s.save();
-
-//Ett exempel på hur man kan skriva laddningen
-//Save sl = new Save();
-//o = (ArrayList<Object>) sl.load();
-//deal.setDeck = (Deck) o.get(0);
-//deal.setHand((List<Card>) o.get(1));

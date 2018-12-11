@@ -68,11 +68,14 @@ public class VideoPoker {
 		if (playForMoney) {
 			System.out.println("Ditt saldo är: " + bank.getBalance() + " Hur mycket vill du satsa?");
 			bet = scVP.nextInt();
+			while(bet > bank.getBalance()) {
+				System.out.println("Du får inte satsa mer än du äger\nDitt saldo är " + bank.getBalance());
+				bet = scVP.nextInt();
+			}
 		}
 		do {
 			System.out.println("1: Byt kort\n" + "0: Byten klart\n" + "9: För att spara\n");		//Visuellt vilket kort/alternativ som är kopplat till vilken inmatning
-			intf.getHand();					//INTERFACE -Metod finns inte ännu, (skriv ut nuvarande hand)					
-			
+			intf.getHand();					
 			
 			System.out.println("1: Byt kort " + "0: Byten klart " + "9: Spara");		
 			playerInput = scVP.nextInt();
@@ -90,9 +93,6 @@ public class VideoPoker {
 				
 				deal.discardCard(discardCards);		
 				break;
-//			case 9:
-//				save = new Save(deal.getDeck(), deal.getHand(), bank.getPoäng());
-//				save.save();
 			case 9:
 				save = new Save(deal.getDeck(), deal.getHand(), bank.getBalance());
 				save.save();
@@ -108,9 +108,10 @@ public class VideoPoker {
 		deal.redrawHand();					
 		intf.getHand();					//skriv ut nuvarande hand
 		intf.getScore();
+		System.out.println();
 		
 		if (playForMoney) {
-			bank.Check_balance(deal.getHand(), bet);				//BANK -Metod finns inte ännu
+			bank.Check_balance(deal.getHand(), bet);
 		}
 
 	}

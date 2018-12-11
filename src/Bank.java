@@ -10,11 +10,8 @@ import java.util.List;
 
 public class Bank implements Serializable {
 
-		
-
 	private int balance;
-	
-	
+
 	public int getBalance() {
 		return balance;
 	}
@@ -22,33 +19,17 @@ public class Bank implements Serializable {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
-	
-// EN METHOD SOM KOLLAR VAD MAN HAR FÅTT FÖR POÄNG
 
-//	public void Check_balance() {
-//
-//			if (poäng == 0) {
-//				System.out.println("");
-//
-//			} else if (poäng > 0) {
-//				balance = balance + poäng;
-//				System.out.println(" Din balance" + balance);
-//
-//			}
-//
-//	}
-
-		public void Check_balance(List <Card> hand, int i) {
-			Points point = new Points(hand);
-			if(point.getPointsVideoPoker() > 0) {
-				balance += i*point.getPointsVideoPoker();
-				System.out.println("Vinst! " + i*point.getPointsVideoPoker() + " Nytt saldo: " + getBalance());
-			}
-			else {
-				balance -= i;
-				System.out.println("Du förlorade. Nytt saldo: " + getBalance());
-			}
+	//Hanterar användarens saldo vid vinster och förluster
+	public void Check_balance(List<Card> hand, int i) {
+		Points point = new Points(hand);
+		if (point.getPointsVideoPoker() > 0) {
+			balance += (i * point.getPointsVideoPoker()) * 0.5;
+			System.out.println("Vinst! Du fick " + (i * point.getPointsVideoPoker()) * 0.5 + " kr\nNytt saldo: " + getBalance());
+		} else {
+			balance -= i;
+			System.out.println("Du förlorade. Nytt saldo: " + getBalance());
 		}
-
 	}
 
+}
